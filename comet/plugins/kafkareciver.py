@@ -43,29 +43,15 @@ consumer.subscribe(subscribeSet)
 
 i = 0
 
-while True:
-
+while i < 20:
     i = i + 1
-
     for message in consumer.consume():
-    
-        if i > 20:
-            value = message.value()
+
+        value = message.value()
+        try:
             test = Voevent(vp.loads(value))
             print("------------")
             print(test)
-            print("-----------")
-
-            """    
-            print("value: \n")
+            print("-----------")    
+        except:
             print(value)
-            print("------")
-            print("topic:" + message.topic()) 
-            print("value: \n")
-            print("key: \n")
-            print(message.key())
-            print("\n")
-            print("headers \n")
-            print(message.headers());
-            print("------")
-            """
