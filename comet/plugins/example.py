@@ -129,10 +129,12 @@ consumer.subscribe(['gcn.classic.text.AGILE_GRB_GROUND',
                     'gcn.classic.text.SNEWS',
                     'gcn.classic.text.SUZAKU_LC',
                     'gcn.classic.text.TEST_COORDS'])
+
+
 while True:
     for message in consumer.consume():
         value = message.value()
         print(value)
         print(type(value))
-        test = Voevent(value)
-        print(test)
+        #test = Voevent.Voevent(value)
+        #print(test)

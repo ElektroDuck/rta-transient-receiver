@@ -17,9 +17,15 @@ from astropy.coordinates import SkyCoord
 from comet.utility.xml import xml_document
 from ligo.skymap.io.fits import read_sky_map
 from ligo.skymap.postprocess.contour import contour as ligo_contour
+
+"""
 from comet.plugins.test.test_voevents import DUMMY_VOEVENT_GCN, DUMMY_VOEVENT_INTEGRAL, DUMMY_VOEVENT_CHIME, \
     DUMMY_VOEVENT_LIGO, DUMMY_VOEVENT_LIGO_INITIAL, DUMMY_VOEVENT_LIGO_PRELIMINARY, DUMMY_VOEVENT_GCN_FERMI, \
     DUMMY_VOEVENT_GCN_MAXI
+"""
+
+from test_voevents import DUMMY_VOEVENT_GCN, DUMMY_VOEVENT_INTEGRAL, DUMMY_VOEVENT_CHIME, DUMMY_VOEVENT_LIGO, DUMMY_VOEVENT_LIGO_INITIAL, DUMMY_VOEVENT_LIGO_PRELIMINARY, DUMMY_VOEVENT_GCN_FERMI, DUMMY_VOEVENT_GCN_MAXI
+
 
 class DummyEvent(object):
     """
