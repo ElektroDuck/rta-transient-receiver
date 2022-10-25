@@ -1,0 +1,258 @@
+TYPE=1 PACKET CONTENTS (BATSE_ORIGINAL)                  [NO LONGER AVAILABLE, GRO de-orbit]
+            Packet Item Descriptions
+      TYPE=2 PACKET CONTENTS (Test coords)
+            Packet Item Descriptions
+      TYPE=3 PACKET CONTENTS (Imalive)
+            Packet Item Descriptions
+      TYPE=4 PACKET CONTENTS (Kill)
+      TYPE=11 PACKET CONTENTS (BATSE_MAXBC)                    [NO LONGER AVAILABLE, GRO de-orbit]
+            Packet Item Descriptions (only those unique to type=11)
+      TYPE=21 PACKET CONTENTS/DESCRIPTION (Bradford Test)      [NO LONGER AVAILABLE, GRO de-orbit]
+      TYPE=22 PACKET CONTENTS/DESCRIPTION (BATSE_FINAL)        [NO LONGER AVAILABLE, GRO de-orbit]
+      TYPE=24 PACKET CONTENTS/DESCRIPTION (BATSE_LOCBURST)     [NO LONGER AVAILABLE, GRO de-orbit]
+      TYPE=25 PACKET CONTENTS (ALEXIS)                         [NO LONGER AVAILABLE, mission completed]
+            Packet Item Descriptions (only those unique to type=25)
+      TYPE=26 PACKET CONTENTS (XTE-PCA Alert)                  [NO LONGER AVAILABLE, project stopped producing]
+            Packet Item Descriptions (only those unique to type=26)
+      TYPE=27 PACKET CONTENTS (XTE-PCA Source)                 [NO LONGER AVAILABLE, project stopped producing]
+            Packet Item Descriptions (only those unique to type=27)
+      TYPE=28 PACKET CONTENTS (XTE-ASM Alert)                  [NOT YET AVAILABLE, project stopped producing]
+      TYPE=29 PACKET CONTENTS (XTE-ASM Source)
+            Packet Item Descriptions (only those unique to type=29)
+      TYPE=30 PACKET CONTENTS (COMPTEL)                        [NO LONGER AVAILABLE, GRO do-orbit]
+      TYPE=31 PACKET CONTENTS (IPN_Raw)
+            Packet Item Descriptions
+      TYPE=32 PACKET CONTENTS (IPN_Segment)                    [MAY BE RE-AVAILABLE]
+            Packet Item Descriptions (only those unique to type=32)
+      TYPE=33 PACKET CONTENTS (SAX-WFC Alert)                  [NEVER PRODUCED by project]
+      TYPE=34 PACKET CONTENTS (SAX-WFC Source)                 [NO LONGER AVAILABLE, mission completed]
+            Packet Item Descriptions (only those unique to type=34)
+      TYPE=35 PACKET CONTENTS (SAX-NFI Alert)                  [NEVER PRODUCED by project]
+      TYPE=36 PACKET CONTENTS (SAX-NFI Source)                 [NO LONGER AVAILABLE, mission completed]
+            Packet Item Descriptions (only those unique to type=36)
+      TYPE=37 PACKET CONTENTS (RXTE-ASM_XTRANS)                [NO LONGER AVAILABLE, project stopped producing]
+            Packet Item Descriptions (only those unique to type=37)
+      TYPE=38 PACKET CONTENTS (spare for development testing)
+      TYPE=39 PACKET CONTENTS (IPN_Position)
+            Packet Item Descriptions (only those unique to type=39)
+      TYPE=40 PACKET CONTENTS (HETE_S/C_ALERT Source)          [NO LONGER AVAILABLE, mission completed]
+            Packet Item Descriptions
+      TYPE=41 PACKET CONTENTS (HETE_S/C_UPDATE Source)         [NO LONGER AVAILABLE, mission completed]
+            Packet Item Descriptions (only those unique to type=41)
+      TYPE=42 PACKET CONTENTS (HETE_S/C_LAST Source)           [NO LONGER AVAILABLE, mission completed]
+            Packet Item Descriptions (only those unique to type=42)
+      TYPE=43 PACKET CONTENTS (HETE_GROUND_ANALYSIS Source)    [NO LONGER AVAILABLE, mission completed]
+            Packet Item Descriptions (only those unique to type=43)
+      HETE FLAG BITS  VS  NOTICE TYPE
+      TYPE=44 PACKET CONTENTS (HETE_Test Source)
+      HETE-BASED PACKET ITEM MACROS
+      TYPE=45 PACKET CONTENTS (GRB_COUNTERPART Source)
+            Packet Item Descriptions
+      TYPE=46 PACKET CONTENTS (SWIFT_TOO_FOM_OBSERVE)
+            Packet Item Descriptions
+      TYPE=47 PACKET CONTENTS (SWIFT_TOO_SC_SLEW)
+            Packet Item Descriptions
+      TYPE=48 PACKET CONTENTS (DOW_TOD Test)
+            Packet Item Descriptions
+      TYPE=51 PACKET CONTENTS (INTEGRAL_POINTDIR)
+            Packet Item Descriptions
+      TYPE=52 PACKET CONTENTS (INTEGRAL_SPIACS)
+            Packet Item Descriptions
+      TYPE=53 PACKET CONTENTS (INTEGRAL_WAKEUP Source)
+            Packet Item Descriptions
+      TYPE=54 PACKET CONTENTS (INTEGRAL_REFINED Source)
+            Packet Item Descriptions
+      TYPE=55 PACKET CONTENTS (INTEGRAL_OFFLINE Source)
+            Packet Item Descriptions
+      TYPE=56 PACKET CONTENTS (INTEGRAL_WEAK Source)
+            Packet Item Descriptions
+      TYPE=57 PACKET CONTENTS (AAVSO Event)                    [NOT YET AVAILABLE]
+            Packet Item Descriptions
+      TYPE=58 PACKET CONTENTS (MILAGRO Source)                 [NO LONGER AVAILABLE, project completed]
+            Packet Item Descriptions
+      TYPE=59 PACKET CONTENTS (KONUS_Lightcurve)               [SOON TO BE AVAILABLE]
+            Packet Item Descriptions
+      TYPE=60 PACKET CONTENTS (SWIFT_BAT_GRB_ALERT)
+            Packet Item Descriptions
+      TYPE=61 PACKET CONTENTS (SWIFT_BAT_GRB_POSITION Source)
+            Packet Item Descriptions
+      TYPE=62 PACKET CONTENTS (SWIFT_BAT_GRB_NACK_POSITION)
+            Packet Item Descriptions
+      TYPE=63 PACKET CONTENTS (SWIFT_BAT_GRB_LIGHTCURVE)
+            Packet Item Descriptions
+      TYPE=64 PACKET CONTENTS (SWIFT_BAT_SCALED_MAP)           [NOT AVAILABLE TO THE PUBLIC]
+            Packet Item Descriptions
+      TYPE=65 PACKET CONTENTS (SWIFT_FOM_OBSERVE)
+            Packet Item Descriptions
+      TYPE=66 PACKET CONTENTS (SWIFT_SC_SLEW)
+            Packet Item Descriptions
+      TYPE=67 PACKET CONTENTS (SWIFT_XRT_POSITION Source)
+            Packet Item Descriptions
+      TYPE=68 PACKET CONTENTS (SWIFT_XRT_SPECTRUM)             [NOT AVAILABLE TO THE PUBLIC]
+            Packet Item Descriptions
+      TYPE=69 PACKET CONTENTS (SWIFT_XRT_IMAGE)
+            Packet Item Descriptions
+      TYPE=70 PACKET CONTENTS (SWIFT_XRT_LIGHTCURVE)           [NOT AVAILABLE TO THE PUBLIC]
+            Packet Item Descriptions
+      TYPE=71 PACKET CONTENTS (SWIFT_XRT_NACK_POSITION)
+            Packet Item Descriptions
+      TYPE=72 PACKET CONTENTS (SWIFT_UVOT_IMAGE)
+            Packet Item Descriptions
+      TYPE=73 PACKET CONTENTS (SWIFT_UVOT_SRC_LIST)
+            Packet Item Descriptions
+      TYPE=76 PACKET CONTENTS (SWIFT_BAT_GRB_LIGHTCURVE_PROC)  [NOT YET AVAILABLE]
+            Packet Item Descriptions
+      TYPE=77 PACKET CONTENTS (SWIFT_XRT_SPECTRUM_PROC)        [NOT AVAILABLE TO THE PUBLIC]
+            Packet Item Descriptions
+      TYPE=78 PACKET CONTENTS (SWIFT_XRT_IMAGE_PROC)
+            Packet Item Descriptions
+      TYPE=79 PACKET CONTENTS (SWIFT_UVOT_IMAGE_PROC)
+            Packet Item Descriptions
+      TYPE=80 PACKET CONTENTS (SWIFT_UVOT_SRC_LIST_PROC)
+            Packet Item Descriptions
+      TYPE=81 PACKET CONTENTS (SWIFT_UVOT_POSITION Source)
+            Packet Item Descriptions
+      TYPE=82 PACKET CONTENTS (SWIFT_BAT_GRB_POS_TEST Source)
+            Packet Item Descriptions
+      TYPE=83 PACKET CONTENTS (SWIFT_POINTDIR)
+            Packet Item Descriptions
+      TYPE=84 PACKET CONTENTS (SWIFT_BAT_TRANS Source)
+            Packet Item Descriptions
+      TYPE=85 PACKET CONTENTS (SWIFT_XRT_THRESHPIX)            [NOT PUBLIC, SWIFT TEAM ONLY]
+            Packet Item Descriptions
+      TYPE=86 PACKET CONTENTS (SWIFT_XRT_THRESHPIX_PROC)       [NOT PUBLIC, SWIFT TEAM ONLY]
+            Packet Item Descriptions
+      TYPE=87 PACKET CONTENTS (SWIFT_XRT_SPER)                 [NOT PUBLIC, SWIFT TEAM ONLY]
+            Packet Item Descriptions
+      TYPE=88 PACKET CONTENTS (SWIFT_XRT_SPER_PROC)            [NOT PUBLIC, SWIFT TEAM ONLY]
+            Packet Item Descriptions
+      TYPE=89 PACKET CONTENTS (SWIFT_UVOT_NACK_POSITION)
+            Packet Item Descriptions
+      TYPE=97 PACKET CONTENTS (SWIFT_BAT_QUICKLOOK_POSITION Source)
+            Packet Item Descriptions
+      TYPE=98 PACKET CONTENTS (SWIFT_BAT_SUBTHRESHOLD_POSITION Source)
+            Packet Item Descriptions
+      TYPE=99 PACKET CONTENTS (SWIFT_BAT_SLEW_GRB_POSITION Source)
+            Packet Item Descriptions
+      TYPE=100 PACKET CONTENTS (SuperAGILE_GRB_POS_WAKEUP Source)
+            Packet Item Descriptions
+      TYPE=101 PACKET CONTENTS (SuperAGILE_GRB_POS_GROUND Source)
+            Packet Item Descriptions
+      TYPE=102 PACKET CONTENTS (SuperAGILE_GRB_POS_REFINED Source)
+            Packet Item Descriptions
+      TYPE=103 PACKET CONTENTS (SWIFT_ACTUAL_POINTDIR)
+            Packet Item Descriptions
+      TYPE=105 PACKET CONTENTS (AGILE_MCAL_ALERT)
+            Packet Item Descriptions
+      TYPE=107 PACKET CONTENTS (AGILE_POINTDIR)
+            Packet Item Descriptions
+      TYPE=109 PACKET CONTENTS (SuperAGILE_GRB_POS_TEST Source)
+            Packet Item Descriptions
+      TYPE=110 PACKET CONTENTS (FERMI_GBM_ALERT)
+      TYPE=116 PACKET CONTENTS (FERMI_GBM_ALERT_INT)           [NOT PUBLIC, FERMI TEAM ONLY]
+            Packet Item Descriptions
+      TYPE=111 PACKET CONTENTS (FERMI_GBM_FLT_POS Source)
+      TYPE=117 PACKET CONTENTS (FERMI_GBM_FLT_INT Source)      [NOT PUBLIC, FERMI TEAM ONLY]
+            Packet Item Descriptions
+      TYPE=112 PACKET CONTENTS (FERMI_GBM_GND_POS Source)
+            Packet Item Descriptions
+      TYPE=114 PACKET CONTENTS (FERMI_GBM_GND_INT Source)      [NOT PUBLIC, FERMI TEAM ONLY]
+            Packet Item Descriptions
+      TYPE=115 PACKET CONTENTS (FERMI_GBM_FINAL_POS Source)
+            Packet Item Descriptions
+      TYPE=119 PACKET CONTENTS (FERMI_GBM_POS_TEST Source)
+            Packet Item Descriptions
+      TYPE=120 PACKET CONTENTS (FERMI_LAT_GRB_POS_INI Source)  [NOT PUBLIC, FERMI TEAM ONLY]
+            Packet Item Descriptions
+      TYPE=121 PACKET CONTENTS (FERMI_LAT_GRB_POS_UPD Source)
+            Packet Item Descriptions
+      TYPE=122 PACKET CONTENTS (FERMI_LAT_GRB_POS_DIAG Source) [NOT PUBLIC, FERMI TEAM ONLY]
+            Packet Item Descriptions
+      TYPE=123 PACKET CONTENTS (FERMI_LAT_TRANS Source)
+            Packet Item Descriptions
+      TYPE=124 PACKET CONTENTS (FERMI_LAT_GRB_POS_TEST Source)
+            Packet Item Descriptions
+      TYPE=125 PACKET CONTENTS (FERMI_LAT_MONITOR)
+            Packet Item Descriptions
+      TYPE=126 PACKET CONTENTS (FERMI_SC_SLEW)
+      TYPE=144 PACKET CONTENTS (FERMI_SC_SLEW_INT)             [NOT PUBLIC, FERMI TEAM ONLY]
+            Packet Item Descriptions
+      TYPE=127 PACKET CONTENTS (FERMI_LAT_GND Source)
+            Packet Item Descriptions
+      TYPE=128 PACKET CONTENTS (FERMI_LAT_OFFLINE Source)
+            Packet Item Descriptions
+      TYPE=129 PACKET CONTENTS (FERMI_POINTDIR)
+            Packet Item Descriptions
+      TYPE=130 PACKET CONTENTS (SIMBAD/NED Search Results)
+            Packet Item Descriptions
+      TYPE=131 PACKET CONTENTS (FERMI_GBM_SUBTHRESHOLD transient)
+            Packet Item Descriptions
+      TYPE=133 PACKET CONTENTS (SWIFT_BAT_MONITOR)
+            Packet Item Descriptions
+      TYPE=134 PACKET CONTENTS (MAXI_UNKNOWN_SOURCE)
+            Packet Item Descriptions
+      TYPE=135 PACKET CONTENTS (MAXI_KNOWN_SOURCE)
+            Packet Item Descriptions
+      TYPE=136 PACKET CONTENTS (MAXI_TEST)
+            Packet Item Descriptions
+      TYPE=137 PACKET CONTENTS (OGLE)                          [NOT YET AVAILABLE]
+            Packet Item Descriptions
+      TYPE=139 PACKET CONTENTS (MOA)
+            Packet Item Descriptions
+      TYPE=140 PACKET CONTENTS (SWIFT_BAT_SUB_SUB_THRESH_POS)
+            Packet Item Descriptions
+      TYPE=141 PACKET CONTENTS (SWIFT_BAT_KNOWN_SOURCE_POS)
+            Packet Item Descriptions
+      TYPE=145 PACKET CONTENTS (Coincidence)
+            Packet Item Descriptions
+      TYPE=146 PACKET CONTENTS (FERMI_GBM_FINAL_POS_INT Source)
+            Packet Item Descriptions
+      TYPE=148 PACKET CONTENTS (SUZAKU_Lightcurve)
+            Packet Item Descriptions
+      TYPE=149 PACKET CONTENTS (SNEWS)
+            Packet Item Descriptions
+      TYPE=150 PACKET CONTENTS (LVC_PRELIMIARY)
+            Packet Item Descriptions
+      TYPE=151 PACKET CONTENTS (LVC_INITIAL)
+            Packet Item Descriptions
+      TYPE=152 PACKET CONTENTS (LVC_UPDATE)
+            Packet Item Descriptions
+      TYPE=153 PACKET CONTENTS (LVC_TEST)                      [DISCONTINUED BY LVC]
+            Packet Item Descriptions
+      TYPE=154 PACKET CONTENTS (LVC_COUNTERPART)
+            Packet Item Descriptions
+      TYPE=157 PACKET CONTENTS (AMON_ICECUBE_COINC)            [NOT YET PUBLIC, AMON TEAM ONLY]
+            Packet Item Descriptions
+      TYPE=158 PACKET CONTENTS (AMON_ICECUBE_HESE)             [REPLACED BY 173/174]
+            Packet Item Descriptions
+      TYPE=159 PACKET CONTENTS (AMON_ICECUBE_TEST)
+            Packet Item Descriptions
+      TYPE=160 PACKET CONTENTS (CALET_GBM_FLT_LC)
+            Packet Item Descriptions
+      TYPE=161 PACKET CONTENTS (CALET_GBM_GND_LC)
+            Packet Item Descriptions
+      TYPE=163 PACKET CONTENTS (LVC_EARLY_WARNING)
+            Packet Item Descriptions
+      TYPE=164 PACKET CONTENTS (LVC_RETRACTION)
+            Packet Item Descriptions
+      TYPE=166 PACKET CONTENTS (AMON_ICECUBE_CLUSTER)          [NOT YET PUBLIC, AMON TEAM ONLY]
+            Packet Item Descriptions
+      TYPE=168 PACKET CONTENTS (GWHEN_COINC)                   [NOT YET PUBLIC, GWHEN TEAM ONLY]
+            Packet Item Descriptions
+      TYPE=169 PACKET CONTENTS (AMON_ICECUBE_EHE)              [REPLACED BY 173/174]
+            Packet Item Descriptions
+      TYPE=170 PACKET CONTENTS (AMON_ANTARES_FERMILAT_COINC)   [TERMINATED BY AMON 08sep19]
+            Packet Item Descriptions
+      TYPE=171 PACKET CONTENTS (HAWC_BURST_MONITOR)
+            Packet Item Descriptions
+      TYPE=172 PACKET CONTENTS (AMON_NU_EM_COINC)
+            Packet Item Descriptions
+      TYPE=173 PACKET CONTENTS (ICECUBE_ASTROTRACK_GOLD)
+            Packet Item Descriptions
+      TYPE=174 PACKET CONTENTS (ICECUBE_ASTROTRACK_BRONZE)
+            Packet Item Descriptions
+      TYPE=175 PACKET CONTENTS (SK_SUPERNOVA)
+            Packet Item Descriptions
+      TYPE=176 PACKET CONTENTS (AMON_ICECUBE_CASCADE)
+            Packet Item Descriptions
+      

@@ -46,13 +46,14 @@ class Voevent(object):
     def __init__(self, voe) -> None:
 
         self.voevent = voe
-
         self.GCN = False
         self.CHIME = False
         self.INTEGRAL = False
         self.LIGO = False
         self.AGILE = False
+
         self.mark_notice()
+        
         self.ste = self.is_ste()
         self.name = ""
         self.instrumentId = self.get_instrumentid_from_packet_type()
