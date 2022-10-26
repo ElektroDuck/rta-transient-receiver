@@ -2,15 +2,14 @@ from gcn_kafka import Consumer
 from Voevent import Voevent
 import voeventparse as vp
 
-# Connect as a consumer.
-# Warning: don't share the client secret with others.
-"""
-consumer = Consumer(client_id='3vk7sbr0ra6ci9vj7ts25f00tg',
-                    client_secret='h1hmi71behgud8u0o195vfi1pcc1jdsrhighmqr10c1jvnqjm0p')
-"""
+
+#this is used to access old voevents from the kafka stream
+#if deleted from the consumer it will only get incoming voevents in real time
 config = {'group.id': '',
         'auto.offset.reset': 'earliest'}
 
+# Connect as a consumer.
+# Warning: don't share the client secret with others.
 consumer = Consumer(config=config,
                     client_id='3vk7sbr0ra6ci9vj7ts25f00tg',
                     client_secret='h1hmi71behgud8u0o195vfi1pcc1jdsrhighmqr10c1jvnqjm0p')
@@ -39,8 +38,11 @@ subscribeSet = ['gcn.classic.voevent.AGILE_MCAL_ALERT',
 
 
 # Subscribe to topics and receive alerts
+#consumer.subscribe(subscribeSet)
 consumer.subscribe(subscribeSet)
 
+#i is used to stop the message stream print
+#if deleted it will print all messages in the stream
 i = 0
 
 while i < 20:
