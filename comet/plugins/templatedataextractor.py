@@ -19,15 +19,15 @@ from ligo.skymap.io.fits import read_sky_map
 from ligo.skymap.postprocess.contour import contour as ligo_contour
 from voeventdata import Voeventdata
 
-class templatedataextractor(object):
+class TemplateDataExtractor(object):
     
     
     def __init__(self, datasource) -> None:
         self.datasource = datasource
 
-    def extract(self, voevent):
+    def extract(self, voevent) -> Voeventdata:
         is_ste = self.is_ste(self, voevent)
-        instrument_id = self.get_instrumentID(self, voevent)
+        instrument_id, name= self.get_instrumentID_and_name(self, voevent)
         trigger_id = self.get_triggerID(self, voevent)
         packet_type = self.get_packet_type(self, voevent)
         time = self.get_time_from_voevent(self, voevent)
@@ -41,7 +41,7 @@ class templatedataextractor(object):
         ligo_attributes = self.get_ligo_attributes(self, voevent)
         
         #static fields that probably should be not static 
-        name = ""
+        
         seqNum = -1 #to be removed in the future couse should be set by a sql query
         tstart = 0
         tstop = 0
@@ -54,10 +54,10 @@ class templatedataextractor(object):
                             notice, configuration, url, contour, ligo_attributes,
                             name, seqNum, tstart, tstop, last)
 
-    def is_ste(self, voevent):
+    def is_ste(self, voevent) -> tuple:
         raise NotImplementedError
 
-    def get_instrumentID(self, voevent):
+    def get_instrumentID_and_name(self, voevent):
         raise NotImplementedError
 
     def get_triggerID(self, voevent):
