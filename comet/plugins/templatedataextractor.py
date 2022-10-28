@@ -1,4 +1,3 @@
-
 import os
 import re
 import json
@@ -18,7 +17,7 @@ from astropy.coordinates import SkyCoord
 from comet.utility.xml import xml_document
 from ligo.skymap.io.fits import read_sky_map
 from ligo.skymap.postprocess.contour import contour as ligo_contour
-
+from voeventdata import Voeventdata
 
 class templatedataextractor(object):
     
@@ -43,14 +42,17 @@ class templatedataextractor(object):
         
         #static fields that probably should be not static 
         name = ""
-        seqNum = -1
+        seqNum = -1 #to be removed in the future couse should be set by a sql query
         tstart = 0
         tstop = 0
         last = 1
 
         #here need to be create a new class that store the previusly 
         #extracted data and return it
-        
+        return Voeventdata(is_ste, instrument_id, trigger_id,
+                            packet_type, time, network_id, l, b, position_error,
+                            notice, configuration, url, contour, ligo_attributes,
+                            name, seqNum, tstart, tstop, last)
 
     def is_ste(self, voevent):
         raise NotImplementedError
