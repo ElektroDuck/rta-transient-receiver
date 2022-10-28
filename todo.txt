@@ -1,0 +1,7 @@
+-   test class GncDataExtractor
+-   controllare se l'implementazione dei metodi sia effettivamente
+    corretta
+-   controllare se il metodo extract utilizza le nuove implementazioni 
+    delle classi o quelle della classe padre
+-   sistemare il sistema di import dei moduli esterni, così si possono usare
+    le cartelle
