@@ -52,25 +52,57 @@ class Voevent(object):
         self.LIGO = False
         self.AGILE = False
 
+        #(abstract method)determinate where the voevent comes from
         self.mark_notice()
         
+        #(abstract method) determinate if the voevent is a STE (AGILE or INTEGRAL set the value to 1, default 0)
         self.ste = self.is_ste()
+
+        #(field name) dunno what this is
         self.name = ""
+
+        #(abstract method)determinate instrument id from the voevent
         self.instrumentId = self.get_instrumentid_from_packet_type()
+
+        #(field seqNum) set seqNum to -1 (dunno why) (see eventreciver row 74)
         self.seqNum = -1
+
+        #(abstract method) determinate trigger id from the voevent
         self.triggerId = self.get_triggerID()
+
+        #(abstract method) determinate packet type from the voevent
         self.packetType = self.get_packet_tipe()
+        
+        # (method) get time from the voevent
         self.isoTime, self.UTC = self.get_time_from_voe()
+        
+        #(abstract method) determinate network id from the voevent
         self.networkId = self.get_networkID()
+        
+        #(abstract method) dunno what this is
         self.l, self.b = self.get_l_b()
+
+        #(abstract method) determinate position error from the voevent
         self.error = self.get_position_error()
+
+        #(method) build a prettystring from the voevent
         self.notice = vp.prettystr(self.voevent)
+
+        #(abstract method) determinate configuration from the voevent
         self.configuration = self.get_configuration()
+
+        #fields
         self.tstart = 0
         self.tstop = 0
         self.last = 1
+        
+        #(abstract method) if ligo get link
         self.url = self.get_url()
+
+        #(abstract method) if ligo or gcn get contour
         self.contour = self.get_contour()
+        
+        #(abstract method) get ligo attributes
         self.attributes = self.get_ligo_attributes()
         
     

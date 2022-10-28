@@ -71,6 +71,8 @@ class EventReceiver(object):
             
         #seqnum handling
         #####################
+
+        #don't need to check if the seqnum is equal to -1 because it is created with -1 value in voevent class
         if voevent.seqNum == -1:
         
             query = f"SELECT seqnum FROM notice n join receivedsciencealert rsa ON (rsa.receivedsciencealertid = n.receivedsciencealertid) WHERE last = 1 AND rsa.instrumentid = {voevent.instrumentId} AND rsa.triggerid = {voevent.triggerId}"
