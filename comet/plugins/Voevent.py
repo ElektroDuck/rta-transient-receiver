@@ -52,7 +52,8 @@ class Voevent(object):
         self.LIGO = False
         self.AGILE = False
 
-        #(abstract method)determinate where the voevent comes from
+        #(field)determinate where the voevent comes from
+        #different for each data 
         self.mark_notice()
         
         #(abstract method) determinate if the voevent is a STE (AGILE or INTEGRAL set the value to 1, default 0)
@@ -104,8 +105,7 @@ class Voevent(object):
         
         #(abstract method) get ligo attributes
         self.attributes = self.get_ligo_attributes()
-        
-    
+
 
     def mark_notice(self):
         """
