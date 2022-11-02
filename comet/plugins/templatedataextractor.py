@@ -37,7 +37,7 @@ class TemplateDataExtractor(object):
         notice = vp.prettystr(voevent)
         configuration = self.get_configuration(voevent)
         url = self.get_url(voevent)
-        contour = self.get_contour(l, b, position_error)
+        contour = self.get_contour(l, b, position_error, url)
         ligo_attributes = self.get_ligo_attributes(voevent)
         
         #static fields that probably should be not static 
@@ -86,7 +86,7 @@ class TemplateDataExtractor(object):
     def get_url(self, voevent):
         raise NotImplementedError
 
-    def get_contour(self, l, b):
+    def get_contour(self, l, b, url):
         raise NotImplementedError
 
     def get_ligo_attributes(self, voevent):

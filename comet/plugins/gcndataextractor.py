@@ -79,7 +79,7 @@ class GncDataExtractor(TemplateDataExtractor):
     def get_ligo_attributes(self, voevent):
         return {}
 
-    def get_contour(self, l, b, error):
+    def get_contour(self, l, b, error, url):
         """
         utilized code from https://github.com/ASTRO-EDU/AlertReceiver_GCNnetwork/blob/117ce436b7003af14843cd6fd97ed0c0e1d90eb5/gcn/alert.c#L161
         """

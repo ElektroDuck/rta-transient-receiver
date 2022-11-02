@@ -44,7 +44,7 @@ class ChimeDataExtractor(TemplateDataExtractor):
     def get_ligo_attributes(self, voevent):
         return {}
 
-    def get_contour(self, l, b, error):
+    def get_contour(self, l, b, error, url):
         pass
 
     def get_url(self, voevent):
