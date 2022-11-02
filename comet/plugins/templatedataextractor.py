@@ -26,19 +26,19 @@ class TemplateDataExtractor(object):
         self.datasource = datasource
 
     def extract(self, voevent) -> Voeventdata:
-        is_ste = self.is_ste(self, voevent)
-        instrument_id, name= self.get_instrumentID_and_name(self, voevent)
-        trigger_id = self.get_triggerID(self, voevent)
-        packet_type = self.get_packet_type(self, voevent)
-        time = self.get_time_from_voevent(self, voevent)
-        network_id = self.get_networkID(self, voevent)
-        l, b = self.get_l_b(self, voevent)
-        position_error = self.get_position_error(self, voevent)
-        notice = vp.prettystr(self.voevent)
-        configuration = self.get_configuration(self, voevent)
-        url = self.get_url(self, voevent)
-        contour = self.get_contour(self, voevent)
-        ligo_attributes = self.get_ligo_attributes(self, voevent)
+        is_ste = self.is_ste(voevent)
+        instrument_id, name= self.get_instrumentID_and_name(voevent)
+        trigger_id = self.get_triggerID(voevent)
+        packet_type = self.get_packet_type(voevent)
+        time = self.get_time_from_voevent(voevent)
+        network_id = self.get_networkID(voevent)
+        l, b = self.get_l_b(voevent)
+        position_error = self.get_position_error(voevent)
+        notice = vp.prettystr(voevent)
+        configuration = self.get_configuration(voevent)
+        url = self.get_url(voevent)
+        contour = self.get_contour(l, b, position_error)
+        ligo_attributes = self.get_ligo_attributes(voevent)
         
         #static fields that probably should be not static 
         
@@ -49,7 +49,7 @@ class TemplateDataExtractor(object):
 
         #here need to be create a new class that store the previusly 
         #extracted data and return it
-        return Voeventdata(is_ste, instrument_id, trigger_id,
+        return Voeventdata(is_ste, self.datasource,instrument_id, trigger_id,
                             packet_type, time, network_id, l, b, position_error,
                             notice, configuration, url, contour, ligo_attributes,
                             name, seqNum, tstart, tstop, last)
@@ -67,7 +67,7 @@ class TemplateDataExtractor(object):
         raise NotImplementedError
 
     def get_time_from_voevent(self, voevent):
-        iso_time = self.voevent.WhereWhen.ObsDataLocation.ObservationLocation.AstroCoords.Time.TimeInstant.ISOTime.text
+        iso_time = voevent.WhereWhen.ObsDataLocation.ObservationLocation.AstroCoords.Time.TimeInstant.ISOTime.text
         t = Time(iso_time, format="fits", scale="utc")
         return np.round(t.unix - 1072915200), t.fits
 
@@ -86,7 +86,7 @@ class TemplateDataExtractor(object):
     def get_url(self, voevent):
         raise NotImplementedError
 
-    def get_contour(self, voevent):
+    def get_contour(self, l, b):
         raise NotImplementedError
 
     def get_ligo_attributes(self, voevent):
