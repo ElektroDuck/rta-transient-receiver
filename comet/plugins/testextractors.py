@@ -1,10 +1,11 @@
-from test_voevents import DUMMY_VOEVENT_GCN, DUMMY_VOEVENT_INTEGRAL, DUMMY_VOEVENT_CHIME, DUMMY_VOEVENT_LIGO, DUMMY_VOEVENT_LIGO_INITIAL, DUMMY_VOEVENT_LIGO_PRELIMINARY, DUMMY_VOEVENT_GCN_FERMI, DUMMY_VOEVENT_GCN_MAXI
+from test_voevents import DUMMY_VOEVENT_GCN, DUMMY_VOEVENT_INTEGRAL, DUMMY_VOEVENT_CHIME, DUMMY_VOEVENT_LIGO, DUMMY_VOEVENT_LIGO_INITIAL, DUMMY_VOEVENT_LIGO_PRELIMINARY, DUMMY_VOEVENT_GCN_FERMI, DUMMY_VOEVENT_GCN_MAXI, DUMMY_VOEVENT_AGILE
 from comet.utility.xml import xml_document
 import voeventparse as vp
 from gcndataextractor import GncDataExtractor
 from chimedataextractor import ChimeDataExtractor
 from integraldataextractor import IntegralDataExtractor
 from ligodataextractor import LigoDataExtractor
+from agiledataextractor import AgileDataExtractor
 
 
 class DummyEvent(object):
@@ -19,12 +20,11 @@ class DummyEvent(object):
     ligo2 = xml_document(DUMMY_VOEVENT_LIGO_PRELIMINARY)
     ligo_initial = xml_document(DUMMY_VOEVENT_LIGO_INITIAL)
     maxi = xml_document(DUMMY_VOEVENT_GCN_MAXI)
+    agile = xml_document(DUMMY_VOEVENT_AGILE)
+
+    
 
 if __name__ == "__main__":
-    """
-    Main used to quick test. It Should not be used as unit test
-    """
-    
     dummyevents = DummyEvent()
     voe_chime = vp.loads(dummyevents.chime.raw_bytes) #tested
     voe_gcn = vp.loads(dummyevents.gcn.raw_bytes) #tested
@@ -34,6 +34,7 @@ if __name__ == "__main__":
     voe_ligo_2 = vp.loads(dummyevents.ligo2.raw_bytes) #tested
     voe_ligo_init = vp.loads(dummyevents.ligo_initial.raw_bytes) #tested
     voe_maxi = vp.loads(dummyevents.maxi.raw_bytes) #tested
+    voe_agile = vp.loads(dummyevents.agile.raw_bytes) 
     
     gcn = GncDataExtractor("gcn")
     print(gcn.extract(voe_gcn))
@@ -50,4 +51,7 @@ if __name__ == "__main__":
     print(ligo.extract(voe_ligo))
     print(ligo.extract(voe_ligo_2))
     print(ligo.extract(voe_ligo_init))
+
+    agile = AgileDataExtractor("agile")
+    print(agile.extract(voe_agile))
 
