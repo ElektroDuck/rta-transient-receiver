@@ -19,7 +19,7 @@ class GncDataExtractor(TemplateDataExtractor):
         return 0
     
     def get_instrumentID_and_name(self, voevent) -> tuple:
-        packet_type = int(self.voevent.What.Param[0].attrib["value"])
+        packet_type = int(voevent.What.Param[0].attrib["value"])
         if packet_type in [53,54,55]: # INTEGRAL FROM GCN
             return 23, "INTEGRAL"
         elif packet_type == 97: #SWIFT 
@@ -31,9 +31,9 @@ class GncDataExtractor(TemplateDataExtractor):
         elif packet_type == 105: #AGILE_MCAL FROM GCN
             return 5, "AGILE_MCAL"
         elif packet_type in [150, 151, 152, 163]: #LIGO and LIGO_TEST TBD
-            if  "test" in self.voevent.attrib['role']:
+            if  "test" in voevent.attrib['role']:
                 return 19, "LIGO_TEST"
-            if  "observation" in self.voevent.attrib['role']:
+            if  "observation" in voevent.attrib['role']:
                 return 7, "LIGO"
         elif packet_type == 158: #ICECUBE_HESE
             return 8, "ICECUBE_HESE"
@@ -53,24 +53,24 @@ class GncDataExtractor(TemplateDataExtractor):
             raise Exception(f"Voevent with packet type {packet_type} not supported")
 
     def get_triggerID(self, voevent):
-        top_params = vp.get_toplevel_params(self.voevent)
+        top_params = vp.get_toplevel_params(voevent)
         return top_params["TrigID"]["value"]
 
     def get_packet_type(self, voevent):
-        top_params = vp.get_toplevel_params(self.voevent)
+        top_params = vp.get_toplevel_params(voevent)
         return top_params["Packet_Type"]["value"]
 
     def get_networkID(self, voevent):
         return 1
 
     def get_l_b(self, voevent):
-        ra = float(self.voevent.WhereWhen.ObsDataLocation.ObservationLocation.AstroCoords.Position2D.Value2.C1.text)
-        dec = float(self.voevent.WhereWhen.ObsDataLocation.ObservationLocation.AstroCoords.Position2D.Value2.C2.text)
+        ra = float(voevent.WhereWhen.ObsDataLocation.ObservationLocation.AstroCoords.Position2D.Value2.C1.text)
+        dec = float(voevent.WhereWhen.ObsDataLocation.ObservationLocation.AstroCoords.Position2D.Value2.C2.text)
         c = SkyCoord(ra=ra*u.degree, dec=dec*u.degree, frame='icrs')
         return c.galactic.l.degree, c.galactic.b.degree
 
     def get_position_error(self, voevent):
-        return float(self.voevent.WhereWhen.ObsDataLocation.ObservationLocation.AstroCoords.Position2D.Error2Radius.text)
+        return float(voevent.WhereWhen.ObsDataLocation.ObservationLocation.AstroCoords.Position2D.Error2Radius.text)
 
     def get_configuration(self, voevent):
         return "None"
@@ -79,15 +79,15 @@ class GncDataExtractor(TemplateDataExtractor):
     def get_ligo_attributes(self, voevent):
         return {}
 
-    def get_contour(self, voevent):
+    def get_contour(self, l, b, error):
         """
-        copy-paste from https://github.com/ASTRO-EDU/AlertReceiver_GCNnetwork/blob/117ce436b7003af14843cd6fd97ed0c0e1d90eb5/gcn/alert.c#L161
+        utilized code from https://github.com/ASTRO-EDU/AlertReceiver_GCNnetwork/blob/117ce436b7003af14843cd6fd97ed0c0e1d90eb5/gcn/alert.c#L161
         """
-        if self.l == 0 and self.b == 0:
+        if l == 0 and b == 0:
             return 0
         l = 0
         b = 0
-        r = self.error
+        r = error
         delta = 0
         if (r < 0.0000001):
             r = 0.1
@@ -96,8 +96,8 @@ class GncDataExtractor(TemplateDataExtractor):
         contour = ""
 
         for i in range(steps):
-            l = self.l - r * math.cos(delta)
-            b = self.b + r * math.sin(delta)
+            l = l - r * math.cos(delta)
+            b = b + r * math.sin(delta)
             if (l < 0):
                 l = 0
             elif(l >= 360):
