@@ -26,17 +26,19 @@ if __name__ == "__main__":
     """
     
     dummyevents = DummyEvent()
-    voe_chime = vp.loads(dummyevents.chime.raw_bytes)
-    voe_gcn = vp.loads(dummyevents.gcn.raw_bytes)
-    voe_integral = vp.loads(dummyevents.integral.raw_bytes)
-    voe_fermi = vp.loads(dummyevents.fermi.raw_bytes)
-    voe_ligo = vp.loads(dummyevents.ligo.raw_bytes)
-    voe_ligo_2 = vp.loads(dummyevents.ligo2.raw_bytes)
-    voe_ligo_init = vp.loads(dummyevents.ligo_initial.raw_bytes)
-    voe_maxi = vp.loads(dummyevents.maxi.raw_bytes)
+    voe_chime = vp.loads(dummyevents.chime.raw_bytes) #tested
+    voe_gcn = vp.loads(dummyevents.gcn.raw_bytes) #tested
+    voe_integral = vp.loads(dummyevents.integral.raw_bytes) #tested
+    voe_fermi = vp.loads(dummyevents.fermi.raw_bytes) #tested
+    voe_ligo = vp.loads(dummyevents.ligo.raw_bytes) #tested
+    voe_ligo_2 = vp.loads(dummyevents.ligo2.raw_bytes) #tested
+    voe_ligo_init = vp.loads(dummyevents.ligo_initial.raw_bytes) #tested
+    voe_maxi = vp.loads(dummyevents.maxi.raw_bytes) #tested
     
     gcn = GncDataExtractor("gcn")
     print(gcn.extract(voe_gcn))
+    print(gcn.extract(voe_fermi))
+    print(gcn.extract(voe_maxi))
 
     chime = ChimeDataExtractor("chime")
     print(chime.extract(voe_chime))
@@ -47,3 +49,5 @@ if __name__ == "__main__":
     ligo = LigoDataExtractor("ligo")
     print(ligo.extract(voe_ligo))
     print(ligo.extract(voe_ligo_2))
+    print(ligo.extract(voe_ligo_init))
+
