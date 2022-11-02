@@ -3,5 +3,11 @@
     corretta
 -   controllare se il metodo extract utilizza le nuove implementazioni 
     delle classi o quelle della classe padre
+    - aggiornamento del 2/11/22 
+        in teoria avrei fatto dei test e dovrebbe essere così 
+        la classe figlia chiama il metodo in comune e questo 
+        chiama le implementazioni della classe figlia
+    
 -   sistemare il sistema di import dei moduli esterni, così si possono usare
     le cartelle
+    
