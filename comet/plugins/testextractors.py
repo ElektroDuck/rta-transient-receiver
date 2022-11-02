@@ -1,6 +1,7 @@
 from test_voevents import DUMMY_VOEVENT_GCN, DUMMY_VOEVENT_INTEGRAL, DUMMY_VOEVENT_CHIME, DUMMY_VOEVENT_LIGO, DUMMY_VOEVENT_LIGO_INITIAL, DUMMY_VOEVENT_LIGO_PRELIMINARY, DUMMY_VOEVENT_GCN_FERMI, DUMMY_VOEVENT_GCN_MAXI
 from comet.utility.xml import xml_document
-from gncdataextractor import GncDataExtractor
+from gcndataextractor import GncDataExtractor
+from chimedataextractor import ChimeDataExtractor
 import voeventparse as vp
 
 
@@ -34,3 +35,6 @@ if __name__ == "__main__":
     
     gcn = GncDataExtractor("gcn")
     print(gcn.extract(voe_gcn))
+
+    chime = ChimeDataExtractor("chime")
+    print(chime.extract(voe_chime))
