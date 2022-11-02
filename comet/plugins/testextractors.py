@@ -4,6 +4,7 @@ import voeventparse as vp
 from gcndataextractor import GncDataExtractor
 from chimedataextractor import ChimeDataExtractor
 from integraldataextractor import IntegralDataExtractor
+from ligodataextractor import LigoDataExtractor
 
 
 class DummyEvent(object):
@@ -42,3 +43,7 @@ if __name__ == "__main__":
 
     integral = IntegralDataExtractor("integral")
     print(integral.extract(voe_integral))
+
+    ligo = LigoDataExtractor("ligo")
+    print(ligo.extract(voe_ligo))
+    print(ligo.extract(voe_ligo_2))
