@@ -15,8 +15,8 @@ from ligo.skymap.postprocess.contour import contour as ligo_contour
 
 
 class LigoDataExtractor(TemplateDataExtractor):
-    def __init__(self, datasource) -> None:
-        super().__init__(datasource)
+    def __init__(self) -> None:
+        super().__init__("ligo")
 
     def is_ste(self, voevent):
         return 0

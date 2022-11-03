@@ -6,9 +6,8 @@ import math
 from voeventdata import Voeventdata
 
 class ChimeDataExtractor(TemplateDataExtractor):
-    def __init__(self, datasource) -> None:
-        super().__init__(datasource)
-        self.datasource = datasource
+    def __init__(self) -> None:
+        super().__init__("chime")
 
     def extract(self, voevent) -> Voeventdata:
         return super().extract(voevent)

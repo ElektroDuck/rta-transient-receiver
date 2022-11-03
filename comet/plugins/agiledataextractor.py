@@ -6,8 +6,8 @@ import math
 from voeventdata import Voeventdata
 
 class AgileDataExtractor(TemplateDataExtractor):
-    def __init__(self, datasource) -> None:
-        super().__init__(datasource)
+    def __init__(self) -> None:
+        super().__init__("agile")
 
     def extract(self, voevent) -> Voeventdata:
         return super().extract(voevent)

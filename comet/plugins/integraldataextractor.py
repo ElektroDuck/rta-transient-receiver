@@ -7,9 +7,8 @@ from voeventdata import Voeventdata
 
 class IntegralDataExtractor(TemplateDataExtractor):
 
-        def __init__(self, datasource) -> None:
-            super().__init__(datasource)
-            self.datasource = datasource
+        def __init__(self) -> None:
+            super().__init__("integral")
 
         def extract(self, voevent) -> Voeventdata:
             return super().extract(voevent)
