@@ -36,22 +36,27 @@ if __name__ == "__main__":
     voe_maxi = vp.loads(dummyevents.maxi.raw_bytes) #tested
     voe_agile = vp.loads(dummyevents.agile.raw_bytes) 
     
-    gcn = GncDataExtractor("gcn")
+    gcn = GncDataExtractor()
     print(gcn.extract(voe_gcn))
     print(gcn.extract(voe_fermi))
     print(gcn.extract(voe_maxi))
+    print(gcn)
 
-    chime = ChimeDataExtractor("chime")
+    chime = ChimeDataExtractor()
     print(chime.extract(voe_chime))
+    print(chime)
 
-    integral = IntegralDataExtractor("integral")
+    integral = IntegralDataExtractor()
     print(integral.extract(voe_integral))
+    print(integral)
 
-    ligo = LigoDataExtractor("ligo")
+    ligo = LigoDataExtractor()
     print(ligo.extract(voe_ligo))
     print(ligo.extract(voe_ligo_2))
     print(ligo.extract(voe_ligo_init))
+    print(ligo)
 
-    agile = AgileDataExtractor("agile")
+    agile = AgileDataExtractor()
     print(agile.extract(voe_agile))
+    print(agile)
 
