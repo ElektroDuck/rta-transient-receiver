@@ -1,7 +1,6 @@
 -   controllare se l'implementazione dei metodi nelle classi estrattore siano effettivamente
     corretta
--   sistemare il sistema di import dei moduli esterni, così si possono usare
-    le cartelle
--   finire di implementare gli estrattori di informazioni
--   implementare il sistema di smistamento dei voevent agli estrattori
 -   implementare il sistema di inserimento dei voevent nel database
+-   implementare il sistema di email notification
+-   sistemare folder di installazione di setup.py e rimuovere il file update.sh
+
