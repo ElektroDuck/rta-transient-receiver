@@ -1,18 +1,27 @@
+from agiledataextractor import AgileDataExtractor
+from chimedataextractor import ChimeDataExtractor
+from gcndataextractor import GncDataExtractor
+from integraldataextractor import IntegralDataExtractor
+from ligodataextractor import LigoDataExtractor
 
 class VoeventSorting(object):
     def __init__(self) -> None:
-        pass
+        self.agile = AgileDataExtractor()
+        self.chime = ChimeDataExtractor()
+        self.gcn = GncDataExtractor()
+        self.integral = IntegralDataExtractor()
+        self.ligo = LigoDataExtractor()
 
     def sort(self, voevent) -> None:
         if "gcn" in voevent.attrib['ivorn']:
-            print("gcn")
+            print(self.agile.extract(voevent))
         elif "gwnet" in voevent.attrib['ivorn']:
-            print("ligo")
+            print(self.ligo.extract(voevent))
         elif "chimenet" in voevent.attrib['ivorn']:
-            print("chime")
+            print(self.chime.extract(voevent))
         elif "INTEGRAL" in voevent.attrib['ivorn']:
-            print("integral")
+            print(self.integral.extract(voevent))
         elif "AGILE" in voevent.attrib['ivorn']:
-            print("agile")
+            print(self.agile.extract(voevent))
         else:
             raise Exception(f"Notice not supported  ivorn is {self.voevent.attrib['ivorn']}")
