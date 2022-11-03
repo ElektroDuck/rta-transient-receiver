@@ -17,9 +17,9 @@ from twisted.plugin import IPlugin
 from zope.interface import implementer
 from astropy.coordinates import SkyCoord
 
-from Voevent import Voevent
-from mail import Mail
-from utils import Utils
+from comet.plugins.oldcode.Voevent import Voevent
+from comet.plugins.oldcode.mail import Mail
+from comet.plugins.oldcode.utils import Utils
 
 # Event handlers must implement IPlugin and IHandler.
 @implementer(IPlugin, IHandler)

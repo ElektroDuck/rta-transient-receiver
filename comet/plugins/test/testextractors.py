@@ -1,12 +1,12 @@
 from test_voevents import DUMMY_VOEVENT_GCN, DUMMY_VOEVENT_INTEGRAL, DUMMY_VOEVENT_CHIME, DUMMY_VOEVENT_LIGO, DUMMY_VOEVENT_LIGO_INITIAL, DUMMY_VOEVENT_LIGO_PRELIMINARY, DUMMY_VOEVENT_GCN_FERMI, DUMMY_VOEVENT_GCN_MAXI, DUMMY_VOEVENT_AGILE
 from comet.utility.xml import xml_document
 import voeventparse as vp
-from gcndataextractor import GncDataExtractor
-from chimedataextractor import ChimeDataExtractor
-from integraldataextractor import IntegralDataExtractor
-from ligodataextractor import LigoDataExtractor
-from agiledataextractor import AgileDataExtractor
-from voeventsorting import VoeventSorting
+from comet.plugins.extractors.gcndataextractor import GncDataExtractor
+from comet.plugins.extractors.chimedataextractor import ChimeDataExtractor
+from comet.plugins.extractors.integraldataextractor import IntegralDataExtractor
+from comet.plugins.extractors.ligodataextractor import LigoDataExtractor
+from comet.plugins.extractors.agiledataextractor import AgileDataExtractor
+from comet.plugins.voeventdata import Voeventdata
 
 class DummyEvent(object):
     """
@@ -36,15 +36,27 @@ if __name__ == "__main__":
     voe_maxi = vp.loads(dummyevents.maxi.raw_bytes) #tested
     voe_agile = vp.loads(dummyevents.agile.raw_bytes) 
     
-    voe_sorter = VoeventSorting()
-    voe_sorter.sort(voe_chime)
-    voe_sorter.sort(voe_gcn)
-    voe_sorter.sort(voe_integral)
-    voe_sorter.sort(voe_fermi)
-    voe_sorter.sort(voe_ligo)
-    voe_sorter.sort(voe_ligo_2)
-    voe_sorter.sort(voe_ligo_init)
-    voe_sorter.sort(voe_maxi)
-    voe_sorter.sort(voe_agile)
-    
+    gcn = GncDataExtractor()
+    print(gcn.extract(voe_gcn))
+    print(gcn.extract(voe_fermi))
+    print(gcn.extract(voe_maxi))
+    print(gcn)
+
+    chime = ChimeDataExtractor()
+    print(chime.extract(voe_chime))
+    print(chime)
+
+    integral = IntegralDataExtractor()
+    print(integral.extract(voe_integral))
+    print(integral)
+
+    ligo = LigoDataExtractor()
+    print(ligo.extract(voe_ligo))
+    print(ligo.extract(voe_ligo_2))
+    print(ligo.extract(voe_ligo_init))
+    print(ligo)
+
+    agile = AgileDataExtractor()
+    print(agile.extract(voe_agile))
+    print(agile)
 

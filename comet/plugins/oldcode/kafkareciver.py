@@ -1,5 +1,5 @@
 from gcn_kafka import Consumer
-from Voevent import Voevent
+from comet.plugins.oldcode.Voevent import Voevent
 import voeventparse as vp
 
 

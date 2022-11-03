@@ -1,4 +1,4 @@
-from templatedataextractor import TemplateDataExtractor
+from comet.plugins.extractors.templatedataextractor import TemplateDataExtractor
 import voeventparse as vp
 import requests
 import numpy as np
@@ -8,7 +8,7 @@ import os
 from astropy.coordinates import SkyCoord
 from astropy import units as u
 import math
-from voeventdata import Voeventdata
+from comet.plugins.voeventdata import Voeventdata
 from datetime import datetime
 from ligo.skymap.io.fits import read_sky_map
 from ligo.skymap.postprocess.contour import contour as ligo_contour

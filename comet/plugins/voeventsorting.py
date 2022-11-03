@@ -1,8 +1,8 @@
-from agiledataextractor import AgileDataExtractor
-from chimedataextractor import ChimeDataExtractor
-from gcndataextractor import GncDataExtractor
-from integraldataextractor import IntegralDataExtractor
-from ligodataextractor import LigoDataExtractor
+from comet.plugins.extractors.agiledataextractor import AgileDataExtractor
+from comet.plugins.extractors.chimedataextractor import ChimeDataExtractor
+from comet.plugins.extractors.gcndataextractor import GncDataExtractor
+from comet.plugins.extractors.integraldataextractor import IntegralDataExtractor
+from comet.plugins.extractors.ligodataextractor import LigoDataExtractor
 
 class VoeventSorting(object):
     def __init__(self) -> None:

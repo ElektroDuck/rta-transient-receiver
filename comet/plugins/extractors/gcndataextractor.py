@@ -1,9 +1,9 @@
-from templatedataextractor import TemplateDataExtractor
+from comet.plugins.extractors.templatedataextractor import TemplateDataExtractor
 import voeventparse as vp
 from astropy.coordinates import SkyCoord
 from astropy import units as u
 import math
-from voeventdata import Voeventdata
+from comet.plugins.voeventdata import Voeventdata
 
 class GncDataExtractor(TemplateDataExtractor):
 

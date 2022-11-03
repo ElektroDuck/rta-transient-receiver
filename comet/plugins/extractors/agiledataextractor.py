@@ -1,32 +1,32 @@
-from templatedataextractor import TemplateDataExtractor
+from comet.plugins.extractors.templatedataextractor import TemplateDataExtractor
+from comet.plugins.voeventdata import Voeventdata
 import voeventparse as vp
 from astropy.coordinates import SkyCoord
 from astropy import units as u
 import math
-from voeventdata import Voeventdata
 
-class ChimeDataExtractor(TemplateDataExtractor):
+class AgileDataExtractor(TemplateDataExtractor):
     def __init__(self) -> None:
-        super().__init__("chime")
+        super().__init__("agile")
 
     def extract(self, voevent) -> Voeventdata:
         return super().extract(voevent)
 
     def is_ste(self, voevent):
-        return 0
-
-    def get_instrumentID_and_name(self, voevent):
-        return 1, "CHIME"
+        return 1
+    
+    def get_instrumentID_and_name(self, voevent) -> tuple:
+            return 5, "AGILE_MCAL"
 
     def get_triggerID(self, voevent):
-        grouped_params = vp.get_grouped_params(voevent)
-        return grouped_params["event parameters"]["event_no"]["value"]
+        top_params = vp.get_toplevel_params(voevent)
+        return top_params["TrigID"]["value"]
 
     def get_packet_type(self, voevent):
         return 0
 
     def get_networkID(self, voevent):
-        return 4 
+        return 7
 
     def get_l_b(self, voevent):
         ra = float(voevent.WhereWhen.ObsDataLocation.ObservationLocation.AstroCoords.Position2D.Value2.C1.text)

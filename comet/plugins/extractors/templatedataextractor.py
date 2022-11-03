@@ -17,7 +17,7 @@ from astropy.coordinates import SkyCoord
 from comet.utility.xml import xml_document
 from ligo.skymap.io.fits import read_sky_map
 from ligo.skymap.postprocess.contour import contour as ligo_contour
-from voeventdata import Voeventdata
+from comet.plugins.voeventdata import Voeventdata
 
 class TemplateDataExtractor(object):
     
