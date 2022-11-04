@@ -30,7 +30,7 @@ class TemplateDataExtractor(object):
         instrument_id, name= self.get_instrumentID_and_name(voevent)
         trigger_id = self.get_triggerID(voevent)
         packet_type = self.get_packet_type(voevent)
-        time = self.get_time_from_voevent(voevent)
+        isoTime, UTC = self.get_time_from_voevent(voevent)
         network_id = self.get_networkID(voevent)
         l, b = self.get_l_b(voevent)
         position_error = self.get_position_error(voevent)
@@ -49,10 +49,10 @@ class TemplateDataExtractor(object):
 
         #here need to be create a new class that store the previusly 
         #extracted data and return it
-        return Voeventdata(is_ste, self.datasource,instrument_id, trigger_id,
-                            packet_type, time, network_id, l, b, position_error,
-                            notice, configuration, url, contour, ligo_attributes,
-                            name, seqNum, tstart, tstop, last)
+        return Voeventdata(self.datasource, is_ste, instrument_id, trigger_id,
+                    packet_type, isoTime, UTC, network_id, l, b, position_error,
+                    notice, configuration, url, contour, ligo_attributes,
+                    name, seqNum, tstart, tstop, last)
 
     def is_ste(self, voevent) -> tuple:
         raise NotImplementedError
