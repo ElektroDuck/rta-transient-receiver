@@ -1,6 +1,8 @@
 -   controllare se l'implementazione dei metodi nelle classi estrattore siano effettivamente
     corretta
--   implementare il sistema di inserimento dei voevent nel database
+-   controllare il funzionamento dell'inserimento dei voevent nel database (esiste già un main in voevent handler)
+-   farsi popolare il database per testare il funzionamento dell'inserimento dei voevent nel
+    database
 -   implementare il sistema di email notification
 -   sistemare folder di installazione di setup.py e rimuovere il file update.sh
 
