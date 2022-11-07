@@ -67,7 +67,7 @@ class DatabaseInterface(object):
 
         #insert in notice table
         noticetime = datetime.utcnow().isoformat(timespec="seconds")
-        query = f"INSERT INTO notice (receivedsciencealertid, seqnum, l, b, error, contour, `last`, `type`, configuration, noticetime, notice, tstart, tstop, url, `attributes`, afisscheck) VALUES ({receivedsciencealertid}, {seqNum}, {voevent.l}, {voevent.b}, {voevent.error}, '{voevent.contour}', {voevent.last}, {voevent.packetType}, '{voevent.configuration}', '{noticetime}', '{voevent.notice}', {voevent.tstart}, {voevent.tstop}, '{voevent.url}', '{voevent.attributes}', 0);"
+        query = f"INSERT INTO notice (receivedsciencealertid, seqnum, l, b, error, contour, `last`, `type`, configuration, noticetime, notice, tstart, tstop, url, `attributes`, afisscheck) VALUES ({receivedsciencealertid}, {seqNum}, {voevent.l}, {voevent.b}, {voevent.position_error}, '{voevent.contour}', {voevent.last}, {voevent.packet_type}, '{voevent.configuration}', '{noticetime}', '{voevent.notice}', {voevent.tstart}, {voevent.tstop}, '{voevent.url}', '{voevent.ligo_attributes}', 0);"
         self.cursor.execute(query)
         self.cnx.commit()
 
