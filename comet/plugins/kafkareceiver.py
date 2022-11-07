@@ -1,6 +1,6 @@
 from gcn_kafka import Consumer
-from comet.plugins.oldcode.Voevent import Voevent
 import voeventparse as vp
+from voeventhandler import VoeventHandler
 
 
 #this is used to access old voevents from the kafka stream
@@ -40,7 +40,7 @@ subscribeSet = ['gcn.classic.voevent.AGILE_MCAL_ALERT',
 # Subscribe to topics and receive alerts
 #consumer.subscribe(subscribeSet)
 consumer.subscribe(subscribeSet)
-
+voeventhandle = VoeventHandler()
 #i is used to stop the message stream print
 #if deleted it will print all messages in the stream
 i = 0
@@ -50,10 +50,8 @@ while i < 20:
     for message in consumer.consume():
 
         value = message.value()
-        try:
-            test = Voevent(vp.loads(value))
-            print("------------")
-            print(test)
-            print("-----------")    
-        except:
+        try:  
+            voeventhandle.handleVoevent(vp.loads(value))
+        except Exception as ex:
             print(value)
+            print(ex)
