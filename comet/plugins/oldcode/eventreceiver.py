@@ -19,7 +19,7 @@ from astropy.coordinates import SkyCoord
 
 from comet.plugins.oldcode.Voevent import Voevent
 from comet.plugins.oldcode.mail import Mail
-from comet.plugins.oldcode.utils import Utils
+from comet.plugins.utils import Utils
 
 # Event handlers must implement IPlugin and IHandler.
 @implementer(IPlugin, IHandler)
