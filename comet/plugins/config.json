@@ -4,5 +4,5 @@
     "Database_password" : "database",
     "Database_host":"127.0.0.1", 
     "Database_port":"3306",
-    "Database_name":"rt_alert_db_comet"
+    "Database_name":"rt_alert_db"
 }
