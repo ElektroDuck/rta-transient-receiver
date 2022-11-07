@@ -1,8 +1,14 @@
 {
-    "_comment": "database connection information",
+    "_section_1": "database connection information",
     "Database_user": "root", 
     "Database_password" : "database",
     "Database_host":"127.0.0.1", 
     "Database_port":"3306",
-    "Database_name":"rt_alert_db"
+    "Database_name":"rt_alert_db",
+
+    "_section_2": "sender_email_information",
+    "packet_with_email_notification": ["150", "151", "152", "163", "158", "169", "173", "174"],
+    "sender_email": "alert.agile@inaf.it",
+    "sender_email_password": "",
+    "email_recivers" : ["antonio.addis@inaf.it", "nicolo.parmiggiani@inaf.it"]
 }
