@@ -47,6 +47,7 @@ if __name__ == "__main__":
     voe_agile = vp.loads(dummyevents.agile.raw_bytes)  #tested
 
     voevent_handler = VoeventHandler()
+    voevent_handler.handleVoevent(voe_chime)
     voevent_handler.handleVoevent(voe_gcn)
     voevent_handler.handleVoevent(voe_integral)
     voevent_handler.handleVoevent(voe_fermi)
