@@ -25,5 +25,11 @@ class Voeventdata(object):
         self.tstop = tstop
         self.last = last
 
+    def set_seq_num(self, seqNum):
+        self.seqNum = seqNum
+
+    def set_received_science_alert_id(self, receivedsciencealertid):
+        self.receivedsciencealertid = receivedsciencealertid
+
     def __str__(self):
         return f"Voevent\nIntrumentID: {self.instrument_id}, name:{self.name}, seqNum {self.seqNum}, triggerid: {self.trigger_id}, packetType: {self.packet_type},time: {self.time}, l: {self.l}, b: {self.b}, contour: {self.contour}, url: {self.url}"
