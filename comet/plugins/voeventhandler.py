@@ -10,14 +10,11 @@ class VoeventHandler(object):
     
     def __init__(self):
         self.db = DatabaseInterface()
+        self.voevent_sorter = VoeventSorting()
 
     def handleVoevent(self, voevent):
-        data = self.__voeventSorter(voevent)
+        data = self.voevent_sorter.sort(voevent)
         self.db.insert_voevent(data)
-    
-    def __voeventSorter(self, voevent) -> Voeventdata:
-        voevent_sorter = VoeventSorting()
-        return voevent_sorter.sort(voevent) 
 
 class DummyEvent(object):
     """
@@ -43,8 +40,16 @@ if __name__ == "__main__":
     voe_ligo_2 = vp.loads(dummyevents.ligo2.raw_bytes) #tested
     voe_ligo_init = vp.loads(dummyevents.ligo_initial.raw_bytes) #tested
     voe_maxi = vp.loads(dummyevents.maxi.raw_bytes) #tested
-    voe_agile = vp.loads(dummyevents.agile.raw_bytes) 
+    voe_agile = vp.loads(dummyevents.agile.raw_bytes)  #tested
 
     voevent_handler = VoeventHandler()
     voevent_handler.handleVoevent(voe_chime)
     voevent_handler.handleVoevent(voe_chime)
+    voevent_handler.handleVoevent(voe_gcn)
+    voevent_handler.handleVoevent(voe_integral)
+    voevent_handler.handleVoevent(voe_fermi)
+    voevent_handler.handleVoevent(voe_ligo)
+    voevent_handler.handleVoevent(voe_ligo_2)
+    voevent_handler.handleVoevent(voe_ligo_init)
+    voevent_handler.handleVoevent(voe_maxi)
+    voevent_handler.handleVoevent(voe_agile)
