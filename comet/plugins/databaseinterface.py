@@ -49,7 +49,10 @@ class DatabaseInterface(object):
             receivedsciencealertid = self.cursor.lastrowid
         else:
             receivedsciencealertid = int(check_rsa[0])
-            
+
+        voevent.set_received_science_alert_id(receivedsciencealertid)
+
+
         #seqnum handling
         query = f"SELECT seqnum FROM notice n join receivedsciencealert rsa ON (rsa.receivedsciencealertid = n.receivedsciencealertid) WHERE last = 1 AND rsa.instrumentid = {voevent.instrument_id} AND rsa.triggerid = {voevent.trigger_id}"
         self.cursor.execute(query)
@@ -59,15 +62,37 @@ class DatabaseInterface(object):
             seqNum = int(result_seqnum[0]) + 1 
         except:
             seqNum = 0
+        
+        pass
+    
+        voevent.set_seq_num(seqNum)
 
         #last handling
-        query = f"UPDATE notice SET last = 0 WHERE last = 1 AND receivedsciencealertid = {receivedsciencealertid};"
+        query = f"UPDATE notice SET last = 0 WHERE last = 1 AND receivedsciencealertid = {voevent.receivedsciencealertid};"
         self.cursor.execute(query)
         self.cnx.commit()
 
         #insert in notice table
         noticetime = datetime.utcnow().isoformat(timespec="seconds")
-        query = f"INSERT INTO notice (receivedsciencealertid, seqnum, l, b, error, contour, `last`, `type`, configuration, noticetime, notice, tstart, tstop, url, `attributes`, afisscheck) VALUES ({receivedsciencealertid}, {seqNum}, {voevent.l}, {voevent.b}, {voevent.position_error}, '{voevent.contour}', {voevent.last}, {voevent.packet_type}, '{voevent.configuration}', '{noticetime}', '{voevent.notice}', {voevent.tstart}, {voevent.tstop}, '{voevent.url}', '{voevent.ligo_attributes}', 0);"
+        query = f"INSERT INTO notice (receivedsciencealertid, seqnum, l, b, error, contour, `last`, `type`, configuration, noticetime, notice, tstart, tstop, url, `attributes`, afisscheck) VALUES ({voevent.receivedsciencealertid}, {voevent.seqNum}, {voevent.l}, {voevent.b}, {voevent.position_error}, '{voevent.contour}', {voevent.last}, {voevent.packet_type}, '{voevent.configuration}', '{noticetime}', '{voevent.notice}', {voevent.tstart}, {voevent.tstop}, '{voevent.url}', '{voevent.ligo_attributes}', 0);"
         self.cursor.execute(query)
         self.cnx.commit()
 
+    def meange_correlated_instruments(self, voeventdata):
+        query = f"select ins.name,n.seqnum,n.noticetime,rsa.receivedsciencealertid, rsa.triggerid,rsa.ste,rsa.time as `trigger_time`,ste,notice,JSON_PRETTY(n.attributes) as `attributes` from notice n join receivedsciencealert rsa on ( rsa.receivedsciencealertid = n.receivedsciencealertid) join instrument ins on(ins.instrumentid = rsa.instrumentid) where  ins.name != '{voeventdata.name}' and rsa.instrumentid != 19 and rsa.time >= {voeventdata.isoTime - 10} and rsa.time <= {voeventdata.isoTime + 10} and n.seqnum = (select max(seqnum) from notice n2 join receivedsciencealert rsa2 on ( rsa2.receivedsciencealertid = n2.receivedsciencealertid)  where  rsa.triggerid = rsa2.triggerid ) order by n.noticetime"
+        self.cursor.execute(query)
+        results_row = self.cursor.fetchall()
+        if results_row:
+            for row in results_row:
+                rsaid = row[3]
+                query = f"INSERT INTO correlations (rsaId1, rsaId2) VALUES({voeventdata.receivedsciencealertid}, {rsaid});"
+                self.cursor.execute(query)
+                self.cnx.commit()
+
+            query = f"SELECT ins.name, max(n.seqnum),n.noticetime, n.receivedsciencealertid, rsa.triggerid,rsa.ste,rsa.time as `trigger_time` from notice n join correlations c on (n.receivedsciencealertid = c.rsaId2) join receivedsciencealert rsa on ( rsa.receivedsciencealertid = n.receivedsciencealertid) join instrument ins on (ins.instrumentid = rsa.instrumentid) where c.rsaId1 = {voeventdata.receivedsciencealertid} group by n.receivedsciencealertid order by n.noticetime"
+            self.cursor.execute(query)
+
+            results_row = self.cursor.fetchall()
+            return results_row
+        else:
+            return None
