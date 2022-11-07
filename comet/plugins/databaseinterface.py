@@ -48,7 +48,7 @@ class DatabaseInterface(object):
 
             receivedsciencealertid = self.cursor.lastrowid
         else:
-            receivedsciencealertid = int(check_rsa[0])
+            receivedsciencealertid = int(check_rsa[0]) 
 
         voevent.set_received_science_alert_id(receivedsciencealertid)
 
@@ -85,9 +85,13 @@ class DatabaseInterface(object):
         if results_row:
             for row in results_row:
                 rsaid = row[3]
-                query = f"INSERT INTO correlations (rsaId1, rsaId2) VALUES({voeventdata.receivedsciencealertid}, {rsaid});"
-                self.cursor.execute(query)
-                self.cnx.commit()
+                
+                try:
+                    query = f"INSERT INTO correlations (rsaId1, rsaId2) VALUES({voeventdata.receivedsciencealertid}, {rsaid});"
+                    self.cursor.execute(query)
+                    self.cnx.commit()
+                except:
+                    pass
 
             query = f"SELECT ins.name, max(n.seqnum),n.noticetime, n.receivedsciencealertid, rsa.triggerid,rsa.ste,rsa.time as `trigger_time` from notice n join correlations c on (n.receivedsciencealertid = c.rsaId2) join receivedsciencealert rsa on ( rsa.receivedsciencealertid = n.receivedsciencealertid) join instrument ins on (ins.instrumentid = rsa.instrumentid) where c.rsaId1 = {voeventdata.receivedsciencealertid} group by n.receivedsciencealertid order by n.noticetime"
             self.cursor.execute(query)
