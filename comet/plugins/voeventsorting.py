@@ -15,7 +15,7 @@ class VoeventSorting(object):
 
     def sort(self, voevent) -> Voeventdata:
         if "gcn" in voevent.attrib['ivorn']:
-            return (self.agile.extract(voevent))
+            return (self.gcn.extract(voevent))
         elif "gwnet" in voevent.attrib['ivorn']:
             return (self.ligo.extract(voevent))
         elif "chimenet" in voevent.attrib['ivorn']:
