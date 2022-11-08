@@ -2,4 +2,4 @@
 *.pyc
 build/
 .venv/
-comet/plugins/config.json
+comet/plugins/actualconfig.json
