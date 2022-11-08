@@ -1,7 +1,5 @@
-from databaseinterface import DatabaseInterface
-from comet.plugins.voeventdata import Voeventdata
-from utils import Utils
-from mail import Mail
+from comet.plugins.utils import Utils
+from comet.plugins.mail import Mail
 import json
 
 class EmailNotifier(object):

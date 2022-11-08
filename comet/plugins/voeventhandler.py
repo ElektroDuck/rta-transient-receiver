@@ -1,10 +1,9 @@
-from comet.plugins.voeventdata import Voeventdata
-from comet.plugins.voeventsorting import VoeventSorting
-from databaseinterface import DatabaseInterface
 import voeventparse as vp
+from comet.plugins.voeventsorting import VoeventSorting
+from comet.plugins.databaseinterface import DatabaseInterface
 from comet.utility.xml import xml_document
 from comet.plugins.test.test_voevents import DUMMY_VOEVENT_GCN, DUMMY_VOEVENT_INTEGRAL, DUMMY_VOEVENT_CHIME, DUMMY_VOEVENT_LIGO, DUMMY_VOEVENT_LIGO_INITIAL, DUMMY_VOEVENT_LIGO_PRELIMINARY, DUMMY_VOEVENT_GCN_FERMI, DUMMY_VOEVENT_GCN_MAXI, DUMMY_VOEVENT_AGILE
-from emailnotifier import EmailNotifier
+from comet.plugins.emailnotifier import EmailNotifier
 
 class VoeventHandler(object):
     
