@@ -18,6 +18,10 @@ class VoeventHandler(object):
         self.db.insert_voevent(voeventdata)
         result_row = self.db.meange_correlated_instruments(voeventdata)
         self.email_notifier.sendEmails(voeventdata, result_row)
+    
+    def printVoevent(self, voevent):
+        voeventdata = self.voevent_sorter.sort(voevent)
+        print(voeventdata)
 
 
 class DummyEvent(object):
