@@ -30,14 +30,15 @@ if __name__ == "__main__":
     voe_agile = vp.loads(dummyevents.agile.raw_bytes) 
     
     voe_sorter = VoeventSorting()
-    voe_sorter.sort(voe_chime)
-    voe_sorter.sort(voe_gcn)
-    voe_sorter.sort(voe_integral)
-    voe_sorter.sort(voe_fermi)
-    voe_sorter.sort(voe_ligo)
-    voe_sorter.sort(voe_ligo_2)
-    voe_sorter.sort(voe_ligo_init)
-    voe_sorter.sort(voe_maxi)
-    voe_sorter.sort(voe_agile)
+    print(voe_sorter.sort(voe_chime))
+    print(voe_sorter.sort(voe_gcn))
+    print(voe_sorter.sort(voe_integral))
+    print(voe_sorter.sort(voe_fermi))
+    print(voe_sorter.sort(voe_ligo))
+    print(voe_sorter.sort(voe_ligo_2))
+    print(voe_sorter.sort(voe_ligo_init))
+    print(voe_sorter.sort(voe_maxi))
+    print(voe_sorter.sort(voe_agile))
+
     
 
