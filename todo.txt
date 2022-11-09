@@ -2,3 +2,7 @@
 -   sistemare il riferimento al file json di configurazione e renderlo non un riferimento assoluto
 
 
+jobs -l
+[1]+  6621 Stopped                 python3 kafkareceiver.py
+kill -9 6621
+luca@luca-Ubuntu:~/Documents/rta-transient-receiver/comet/plugins$ jobs -l
