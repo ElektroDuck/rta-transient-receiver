@@ -90,10 +90,10 @@ class LigoDataExtractor(TemplateDataExtractor):
         grouped_params = vp.get_grouped_params(voevent)
         attributes = {}
         attributes["bbh"] = grouped_params["Classification"]["BBH"]["value"]
-        attributes["bns"] = grouped_params["Classification"]["BNS"]["value"]
+        attributes["bns"] = grouped_params["Classification"]["BNS"]["value"] #special mail soglia configurabile
         attributes["far"] = top_params["FAR"]["value"]
-        attributes["nsbh"] = grouped_params["Classification"]["NSBH"]["value"]
-        attributes["has_ns"] = grouped_params["Properties"]["HasNS"]["value"]
+        attributes["nsbh"] = grouped_params["Classification"]["NSBH"]["value"] #special mail soglia configurabile
+        attributes["has_ns"] = grouped_params["Properties"]["HasNS"]["value"] 
         attributes["grace_id"] = top_params["GraceID"]["value"]
         try:
             attributes["mass_gap"] = grouped_params["Classification"]["MassGap"]["value"]
