@@ -35,3 +35,13 @@ twistd -n comet -r --local-ivo=ivo://hotwired.org --local-ivo=ivo://it.agile/mca
 
 link alla doc
 https://comet.transientskp.org/en/stable/usage/broker.html
+
+
+eccezione strana
+%4|1668087396.561|SESSTMOUT|rdkafka#consumer-1| [thrd:main]: Consumer group session timed out (in join-state steady) after 45481 ms without a successful response from the group coordinator (broker 3, last error was Success): revoking assignment and rejoining group
+%5|1668087399.564|REQTMOUT|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/3: Timed out HeartbeatRequest in flight (after 45696ms, timeout #0)
+%4|1668087399.564|REQTMOUT|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/3: Timed out 1 in-flight, 0 retry-queued, 0 out-queue, 0 partially-sent requests
+%3|1668087399.564|FAIL|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator: kafka3.gcn.nasa.gov:9092: 1 request(s) timed out: disconnect (after 473550ms in state UP)
+%5|1668087414.578|REQTMOUT|rdkafka#consumer-1| [thrd:sasl_ssl://kafka3.gcn.nasa.gov:9092/3]: sasl_ssl://kafka3.gcn.nasa.gov:9092/3: Timed out FetchRequest in flight (after 61448ms, timeout #0)
+%4|1668087414.578|REQTMOUT|rdkafka#consumer-1| [thrd:sasl_ssl://kafka3.gcn.nasa.gov:9092/3]: sasl_ssl://kafka3.gcn.nasa.gov:9092/3: Timed out 1 in-flight, 0 retry-queued, 0 out-queue, 0 partially-sent requests
+%3|1668087414.578|FAIL|rdkafka#consumer-1| [thrd:sasl_ssl://kafka3.gcn.nasa.gov:9092/3]: sasl_ssl://kafka3.gcn.nasa.gov:9092/3: 1 request(s) timed out: disconnect (after 484979ms in state UP)
