@@ -12,7 +12,7 @@ class DatabaseInterface(object):
         Read database connection parameters from the config.json file.
         """
 
-        f = open('/home/luca/Documents/rta-transient-receiver/comet/plugins/actualconfig.json')
+        f = open('/usr/local/voevent_reciver_config/actualconfig.json')
         config = json.load(f)
         db_user = config['Database_user']
         db_password = config['Database_password']

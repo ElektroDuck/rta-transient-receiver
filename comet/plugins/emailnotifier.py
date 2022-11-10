@@ -6,7 +6,7 @@ class EmailNotifier(object):
 
     def __init__(self):
         
-        f = open('/home/luca/Documents/rta-transient-receiver/comet/plugins/actualconfig.json')
+        f = open('/usr/local/voevent_reciver_config/actualconfig.json')
         config = json.load(f)
         self.mail = Mail(config["sender_email"], config["sender_email_password"])
         self.to = config["email_recivers"]
