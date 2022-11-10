@@ -5,5 +5,6 @@ setup(
     author="Antonio Addis, Luca Babboni",
     version="2.0.0",
     packages=['comet/plugins', "comet/plugins/test", 'comet/plugins/extractors'],
+    data_files=[('voevent_reciver_config', ['./config.json'])],
     license='GPL-3.0'
 )
