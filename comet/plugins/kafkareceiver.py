@@ -48,24 +48,30 @@ subscribeSet = ['gcn.classic.voevent.AGILE_MCAL_ALERT',
                     'gcn.classic.voevent.MAXI_KNOWN',
                     'gcn.classic.voevent.MAXI_UNKNOWN',
                     'gcn.classic.voevent.SWIFT_BAT_QL_POS',
-                    'gcn.classic.voevent.KONUS_LC']
+                    'gcn.classic.voevent.KONUS_LC'
+                    ]
 
-
+ligotest = ['gcn.classic.voevent.LVC_COUNTERPART',
+                    'gcn.classic.voevent.LVC_EARLY_WARNING',
+                    'gcn.classic.voevent.LVC_INITIAL',
+                    'gcn.classic.voevent.LVC_PRELIMINARY',
+                    'gcn.classic.voevent.LVC_RETRACTION',
+                    'gcn.classic.voevent.LVC_TEST',
+                    'gcn.classic.voevent.LVC_UPDATE']
 
 # Subscribe to topics and receive alerts
 #consumer.subscribe(subscribeSet)
-consumer.subscribe(subscribeSet)
+consumer.subscribe(ligotest)
 
 #class used to perform action when a voevent is recived
 voeventhandle = VoeventHandler()
-"""
 print('kafka on')
 while True:
     for message in consumer.consume():
         value = message.value()
         try:
             voeventhandle.printVoevent(vp.loads(value))
+            voeventhandle.handleVoevent(vp.loads(value))
         except Exception as e:
             print(value)
             print(e)
-"""
