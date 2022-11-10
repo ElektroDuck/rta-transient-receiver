@@ -3,3 +3,4 @@
 build/
 .venv/
 comet/plugins/actualconfig.json
+actualconfig.json
