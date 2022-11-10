@@ -58,8 +58,8 @@ consumer.subscribe(subscribeSet)
 
 #class used to perform action when a voevent is recived
 voeventhandle = VoeventHandler()
-
-
+"""
+print('kafka on')
 while True:
     for message in consumer.consume():
         value = message.value()
@@ -68,3 +68,4 @@ while True:
         except Exception as e:
             print(value)
             print(e)
+"""
