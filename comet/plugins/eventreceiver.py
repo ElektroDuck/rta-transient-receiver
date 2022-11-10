@@ -18,10 +18,14 @@ class EventReceiver(object):
     # comet.utility.xml.xml_document.
     def __call__(self, event):
         
-        voevent_handler = VoeventHandler()
-        voevent_handler.printVoevent(vp.loads(event.raw_bytes))
-        voevent_handler.handleVoevent(vp.loads(event.raw_bytes))
-        return True
+        try:
+            voevent_handler = VoeventHandler()
+            voevent_handler.printVoevent(vp.loads(event.raw_bytes))
+            voevent_handler.handleVoevent(vp.loads(event.raw_bytes))
+            return True
+        except Exception as e:
+            print(e)
+            return True
 
 receive_event = EventReceiver()
 
