@@ -1,6 +1,15 @@
 -   sistemare folder di installazione di setup.py e rimuovere il file update.sh
--   sistemare il riferimento al file json di configurazione e renderlo non un riferimento assoluto
-
+-   aggiornare il file README
+-   considerare inserire i supported packet nel file config.josn 
+-   controllare il supporto del pacchetto non nel gcn extractor ma nel voevent handle
+-   nome missione o progetto nella mail
+-   link mail customizzabile
+-   mail speciale con oggetto speciale per allerte ad altra priorità e elemento ad alta priorità come segnaposto solo su allerte ligo o ligo test
+-   separare codice e controllare licenze
+-   mappare i vecchi istrument id con quelli nuovi
+-   mappa packate id con nome pacchetto
+-   capire come gestire più sorgenti comet afis chime e agile
+-   configureare il reciver 
 
 jobs -l
 [1]+  6621 Stopped                 python3 kafkareceiver.py
